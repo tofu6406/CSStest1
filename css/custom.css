@@ -1,0 +1,121 @@
+/* CSS */
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+    margin: 0; /* デフォルトの余白を無効化 */
+    padding: 0;
+}
+
+/* コンテナクエリ */
+/* コンテナとして設定 */
+.container {
+	container-type: inline-size;
+}
+
+.container #second {
+	width: 250px;
+}
+
+  /* コンテナクエリ部分 */
+@container (min-width: 300px) {
+	ul {
+		display: flex;
+		justify-content: space-between;
+	}
+	li {
+		width: 33%;
+	}
+}
+
+/* :has() */
+.box:has(.blue) {
+	color: blue;
+}
+
+/* ラジオボタン */
+/* 青のラジオボタン #color-blue が選択されていた場合 */
+:root:has(#color-blue:checked) .main-color {
+    /* メインカラー */
+    background-color: darkblue;
+    color: white;
+}
+
+:root:has(#color-blue:checked) .accent-color {
+    /* アクセントカラー */
+    color: deepskyblue;
+}
+
+/* 緑のラジオボタン #color-green が選択されていた場合 */
+:root:has(#color-green:checked) .main-color {
+    /* メインカラー */
+    background-color: darkgreen;
+}
+
+:root:has(#color-green:checked) .accent-color {
+    /* アクセントカラー */
+    color: springgreen;
+}
+
+/* subgrid */
+.parent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 12px;
+}
+
+.subgrid {
+    display: grid;
+    grid-template-columns: subgrid; /* 子グリッドの列を親グリッドに合わせる */
+    grid-template-rows: subgrid; /* 子グリッドの行を親グリッドに合わせる */
+    background-color: #e0e0e0;
+}
+
+/* scroll-behavior: smooth */
+.scroll .label {
+	padding: 6px;
+	border: 1px solid black;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.scroll .scroll_smooth {
+	scroll-behavior: smooth;
+}
+.scroll .box {
+	margin-top: 20px;
+	height: 200px;
+	width: 200px;
+	overflow-y: scroll;
+}
+.scroll .item {
+	height: 200px;
+}
+
+  /* aspect-ratio */
+.aspect .box {
+	width: 100px;
+	background-color: lightblue;
+}
+.aspect .box + .box {
+	margin-top: 20px;
+}
+.aspect .hd {
+	aspect-ratio: 16 / 9;
+}
+.aspect .square {
+	aspect-ratio: 1;
+}
+
+/* text-underline-offset */
+.my-link {
+	text-decoration: underline;
+	text-underline-offset: 10px; /* 本来の位置から10pxオフセット */
+	color: blue;
+}
+
+/* accent-color */
+:root {
+	accent-color: mediumvioletred;
+}
